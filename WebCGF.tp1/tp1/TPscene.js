@@ -21,8 +21,9 @@ TPscene.prototype.init = function (application) {
     this.gl.depthFunc(this.gl.LEQUAL);
 
 	this.axis=new CGFaxis(this);
-    this.obj = new MyObject(this);
-
+    this.obj = new MyQuad(this);
+    this.cube = new MyUnitCube(this);//passo 4.3
+	this.quad = new MyUnitCubeQuad(this);//4.9
 };
 
 TPscene.prototype.initLights = function () {
@@ -99,19 +100,39 @@ TPscene.prototype.display = function () {
                 0.0, 0.0, 1.0, 0.0,
                 0.0, 0.0, 0.0, 1.0  ];
 
-	// Multiplication of the previous transformations
-	//this.multMatrix(tra);     // GT = GT * tra
+	// Multiplication of the previous transformation
 	//this.multMatrix(rot);     // GT = GT * rot
-	//this.multMatrix(sca);     // GT = GT * sca
-
-
-	// ---- END Geometric transformation section
+	//this.multMatrix(tra);     // GT = GT * tra  // faz de baixo para cima as transformações, Não!
 	
+	
+	//this.multMatrix(sca);     // GT = GT * sca
+	//this.pushMatrix();  //garante que a Matriz de modelação da cena está limpa sempre! Boa Prática, ter  o push e pop da Matriz! pois assim nao corro risco que os outros objectos vão parar não sei a onde
+	/*	
+	//this.rotate(Math.PI/6, 0, 1, 0);
+	this.translate(5,0,2);
+	
+	this.scale(5,2,1);
+	this.obj.display(); // original first
+	//this.popMatrix();
+
+
+	this.pushMatrix(); // é uma espécie de safe point's , para evitar fazer contas complicads. Fazer push no início das contas: geométricas, qdo fazemos push ou pop. Qdo famos pop ele volta para ali! tantos push como pop's. Serve para desenhar objectos, em relação a um determinado centro. E fazer para 6 fases! Salvo a posição 0,0,0 e .. meia unidade e fazer pop para voltar a origem!
+	this.translate(0, 5, 0);
+	
+	
+	
+	//this.translate(5, 0, 0);
+	//this.scale(5,2,1);
+	this.obj.display();  // este é o único objecto que vai ser afeto pelas transformações que estão
+	// ---- END Geometric transformation section
+	this.popMatrix();
 
 	// ---- BEGIN Primitive drawing section
 
-	this.obj.display();
+	
 	
 	// ---- END Primitive drawing section
-
+*/
+	this.quad.display();
+	//this.cube.display(); // 4.3
 };
