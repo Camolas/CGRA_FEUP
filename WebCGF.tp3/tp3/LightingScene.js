@@ -8,9 +8,13 @@ var BOARD_B_DIVISIONS = 100;
 
 class LightingScene extends CGFscene 
 {
-	constructor()
+	constructor(scene, slices, stacks)
 	{
-		super();
+		super(scene);
+
+		this.slice = slices;
+		this.stacks = stacks;
+
 	};
 
 	init(application) 
@@ -30,6 +34,7 @@ class LightingScene extends CGFscene
 		this.axis = new CGFaxis(this);
 
 		// Scene elements
+		this.prism = new MyPrism(this,8,20);
 		this.table = new MyTable(this);
 		this.wall = new Plane(this);
 		this.floor = new MyQuad(this);
@@ -146,7 +151,7 @@ class LightingScene extends CGFscene
 		// ---- END Background, camera and axis setup
 
 		// ---- BEGIN Scene drawing section
-
+/*
 		// Floor
 		this.pushMatrix();
 			this.translate(7.5, 0, 7.5);
@@ -199,7 +204,7 @@ class LightingScene extends CGFscene
 			this.materialB.apply();
 			this.boardB.display();
 		this.popMatrix();
-
+*/
 		// ---- END Scene drawing section
 	};
 };

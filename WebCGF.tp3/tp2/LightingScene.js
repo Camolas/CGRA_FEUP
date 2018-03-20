@@ -16,7 +16,7 @@ class LightingScene extends CGFscene
 	init(application) 
 	{
 		super.init(application);
-
+		
 		this.initCameras();
 
 		this.initLights();
@@ -30,7 +30,6 @@ class LightingScene extends CGFscene
 		this.axis = new CGFaxis(this);
 
 		// Scene elements
-		this.table = new MyTable(this);
 		this.wall = new Plane(this);
 		this.floor = new MyQuad(this);
 		
@@ -51,7 +50,7 @@ class LightingScene extends CGFscene
 		this.materialB.setDiffuse(0.6,0.6,0.6,1);
 		this.materialB.setSpecular(0.8,0.8,0.8,1);	
 		this.materialB.setShininess(120);
-		
+	
 	};
 
 	initCameras() 
@@ -62,7 +61,6 @@ class LightingScene extends CGFscene
 	initLights() 
 	{
 		//this.setGlobalAmbientLight(0.5,0.5,0.5, 1.0);
-		this.setGlobalAmbientLight(0,0,0, 1.0);
 		
 		// Positions for four lights
 		this.lights[0].setPosition(4, 6, 1, 1);
@@ -141,14 +139,14 @@ class LightingScene extends CGFscene
 		// Draw axis
 		this.axis.display();
 
-		this.materialDefault.apply();
+		//this.materialDefault.apply();
 
 		// ---- END Background, camera and axis setup
 
 		// ---- BEGIN Scene drawing section
 
 		// Floor
-		this.pushMatrix();
+	/*	this.pushMatrix();
 			this.translate(7.5, 0, 7.5);
 			this.rotate(-90 * degToRad, 1, 0, 0);
 			this.scale(15, 15, 0.2);
@@ -170,20 +168,9 @@ class LightingScene extends CGFscene
 			this.wall.display();
 		this.popMatrix();
 
-		// First Table
-		this.pushMatrix();
-			this.translate(5, 0, 8);
-			this.table.display();
-		this.popMatrix();
-
-		// Second Table
-		this.pushMatrix();
-			this.translate(12, 0, 8);
-			this.table.display();
-		this.popMatrix();
-
-		// Board A
-		this.pushMatrix();
+		*/
+		// Board A 
+/*		this.pushMatrix();
 			this.translate(4, 4.5, 0.2);
 			this.scale(BOARD_WIDTH, BOARD_HEIGHT, 1);
 			
@@ -198,7 +185,7 @@ class LightingScene extends CGFscene
 			
 			this.materialB.apply();
 			this.boardB.display();
-		this.popMatrix();
+		this.popMatrix(); */
 
 		// ---- END Scene drawing section
 	};
