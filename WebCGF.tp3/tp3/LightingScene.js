@@ -12,9 +12,7 @@ class LightingScene extends CGFscene
 	{
 		super(scene);
 
-		this.slice = slices;
-		this.stacks = stacks;
-
+		
 	};
 
 	init(application) 
