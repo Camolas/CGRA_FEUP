@@ -1,5 +1,5 @@
 /**
-* MyPrism
+* MyQuad
 * @constructor
 */
 	class MyPrism extends CGFobject
@@ -59,7 +59,7 @@
 		//this.normals = [];
 		for (var i = 0; i < this.slices; i++) {
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);//são as normais todas iguais uma vez que pertencem ao mesmo plano/face! e a Normal consequentemente é perpendicular a todos eles!
+			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
 
@@ -75,3 +75,4 @@
 	this.initGLBuffers();
 };
 	};
+

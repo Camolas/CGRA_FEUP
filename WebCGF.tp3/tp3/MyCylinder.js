@@ -1,8 +1,8 @@
 /**
-* MyPrism
+* MyCylinder
 * @constructor
 */
-	class MyPrism extends CGFobject
+	class MyCylinder extends CGFobject
 	{
 
 	constructor(scene, slices, stacks)
@@ -38,10 +38,10 @@
 		
 		for (let i = 0; i < this.slices; i++) {
 			this.vertices.push(Math.cos(angle), Math.sin(angle), z);
-			this.vertices.push(Math.cos(angle), Math.sin(angle), z + z_incr);
+		
 			angle += incrAngle;
 			this.vertices.push(Math.cos(angle), Math.sin(angle), z);
-			this.vertices.push(Math.cos(angle), Math.sin(angle), z + z_incr);
+		
 		}
 
 		// this.índices = [];
@@ -58,10 +58,9 @@
 
 		//this.normals = [];
 		for (var i = 0; i < this.slices; i++) {
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);//são as normais todas iguais uma vez que pertencem ao mesmo plano/face! e a Normal consequentemente é perpendicular a todos eles!
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
+			this.normals.push(Math.cos(angle / 2), Math.sin(angle ), 0);
+			angle += incrAngle;
+			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
 
 		}
 		inaux += this.slices;
