@@ -1,4 +1,4 @@
-var degToRad = Math.PI / 180.0;
+	var degToRad = Math.PI / 180.0;
 
 var BOARD_WIDTH = 6.0;
 var BOARD_HEIGHT = 4.0;

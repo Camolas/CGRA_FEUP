@@ -29,7 +29,7 @@
 	let incrAngle = 2 * Math.PI / this.slices;
 	
 	let z = 0;
-	let z_incr = 1 / this.stacks;
+	let z_incr = -1 / this.stacks;
 
 	let inaux = 0;
 
@@ -47,7 +47,7 @@
 		// this.índices = [];
 
 		for (var i = 0; i < this.slices; i++) {
-			this.indices.push(i * 4 + 0 + inaux, i * 4 + 2 + inaux, i * 4 + 1 + inaux);
+			this.indices.push(i * 4 + 0 + inaux, i * 4 + 1 + inaux, i * 4 + 2 + inaux);
 		}
 		for (var i = 0; i < this.slices; i++) {
 			this.indices.push(i * 4 + 3 + inaux, i * 4 + 2 + inaux, i * 4 + 1 + inaux);
@@ -62,11 +62,9 @@
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);//são as normais todas iguais uma vez que pertencem ao mesmo plano/face! e a Normal consequentemente é perpendicular a todos eles!
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
 			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-
+			angle += incrAngle - angle_next;
+			//angle_next += incrAngle; está a rolar
 		}
-		inaux += this.slices;
-		z += z_incr;
-
 		inaux += this.slices;
 		z += z_incr;
 
