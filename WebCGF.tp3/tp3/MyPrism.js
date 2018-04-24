@@ -53,16 +53,16 @@
 			this.indices.push(i * 4 + 3 + inaux, i * 4 + 2 + inaux, i * 4 + 1 + inaux);
 		}
 
-		angle = 0;
+		angle = incrAngle/2;
 		let angle_next = 0;
 
 		//this.normals = [];
 		for (var i = 0; i < this.slices; i++) {
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);//são as normais todas iguais uma vez que pertencem ao mesmo plano/face! e a Normal consequentemente é perpendicular a todos eles!
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			this.normals.push(Math.cos(angle / 2), Math.sin(angle / 2), 0);
-			angle += incrAngle - angle_next;
+			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
+			this.normals.push(Math.cos(angle), Math.sin(angle), 0);//são as normais todas iguais uma vez que pertencem ao mesmo plano/face! e a Normal consequentemente é perpendicular a todos eles!
+			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
+			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
+			angle += incrAngle;
 			//angle_next += incrAngle; está a rolar
 		}
 		inaux += this.slices;
