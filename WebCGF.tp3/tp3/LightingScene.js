@@ -162,7 +162,7 @@ class LightingScene extends CGFscene
 
 		// Cylinder
 		this.pushMatrix();
-			this.translate(0, 0, 0);
+			this.translate(-9, 0, 0);
 			//this.rotate(-90 * degToRad, 1, 0, 0);
 			//this.scale(5, 5, 2);
 			this.cylinder.display();

@@ -29,43 +29,43 @@
 	let incrAngle = 2 * Math.PI / this.slices;
 	
 	let z = 0;
-	let z_incr = -1 / this.stacks;
+	let z_incr = 1 / this.stacks;
 
 	let inaux = 0;
 
 	for (var f = 0; f < this.stacks; f++) {
 		//this.vertices = [];
-		angle = 0;
+		angle =0;
 
 		for (let i = 0; i < this.slices; i++) {
-			this.vertices.push(Math.cos(angle), Math.sin(angle), z);
-			angle += incrAngle;
-			this.vertices.push(Math.cos(angle), Math.sin(angle), z);
-					}
+			this.vertices.push(Math.cos(incrAngle*i), Math.sin(incrAngle*i), f);
+			this.vertices.push(Math.cos(incrAngle*i), Math.sin(incrAngle * i), f+1);
 
-		// this.índices = [];
+		//	angle += incrAngle;
+			this.vertices.push(Math.cos(incrAngle*(i+1)), Math.sin(incrAngle*(i+1)), f);
+			this.vertices.push(Math.cos(incrAngle*(i+1)), Math.sin(incrAngle*(i+1)), f+1);
+			
 
-		for (var i = 0; i < this.slices; i++) {
-			this.indices.push(i * 4 + 0 + inaux, i * 4 + 1 + inaux, i * 4 + 2 + inaux);
+			this.indices.push(i * 4 + 0 + inaux, i * 4 + 2+ inaux, i * 4 + 1 + inaux);
+		
+			this.indices.push(i * 4 + 2 + inaux, i * 4 + 3 + inaux, i * 4 + 1 + inaux);
 		}
-		for (var i = 0; i < this.slices; i++) {
-			this.indices.push(i * 4 + 3 + inaux, i * 4 + 2 + inaux, i * 4 + 1 + inaux);
-		}
 
-		angle = 0;
+		//angle = 0;
 		let angle_next = 0;
 
 		//this.normals = [];
 		for (var i = 0; i < this.slices; i++) {
-			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
-		
-			angle += incrAngle;
-			this.normals.push(Math.cos(angle), Math.sin(angle), 0);
+			this.normals.push(Math.cos(incrAngle*i), Math.sin(incrAngle*i), 0);
+			this.normals.push(Math.cos(incrAngle*i), Math.sin(incrAngle*i), 0);
+			//angle += incrAngle;
+			this.normals.push(Math.cos(incrAngle*(i+1)), Math.sin(incrAngle*(i+1)), 0);
+			this.normals.push(Math.cos(incrAngle*(i+1)), Math.sin(incrAngle*(i+1)), 0);
 		
 		}
 		
 		inaux += this.slices;
-		z += z_incr;
+		//z += z_incr;
 	}
 	this.primitiveType = this.scene.gl.TRIANGLES;
 	this.initGLBuffers();
