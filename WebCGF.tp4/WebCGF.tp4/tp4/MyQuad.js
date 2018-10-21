@@ -4,25 +4,21 @@
  */
 class MyQuad extends CGFobject
 {
+
 	constructor(scene, minS, maxS, minT, maxT)
-	//constructor(scene) 
 	{
 		super(scene);
-
-
-		this.minS = minS || 0.0; //valores por default 
-		this.maxS = maxS || 1.0;
-
-		this.minT = minT || 0.0;
-		this.maxT = maxT || 1.0;
-
+/*  Do construtor que existia antes
+		this.slice = slices;
+		this.stacks = stacks;
+*/
 		this.initBuffers();
 	};
 
 	initBuffers() 
 	{
 		this.vertices = [
-		-0.5, -0.5, 0,
+		-0.5, -0.5, 0, //coincidir os vértices com as coordenadas!
 		0.5, -0.5, 0,
 		-0.5, 0.5, 0,
 		0.5, 0.5, 0
@@ -40,17 +36,11 @@ class MyQuad extends CGFobject
 		0,0,1];
 
 		this.texCoords = [
-		this.minS, this.maxT,
-      	this.maxS, this.maxT,
-		this.minS, this.minT,
-		this.maxS, this.minT
-
-		/*0.0,1.0,
-		1.0,1.0,
-		0.0,0.0,
-		1.0,0.0
-		*/
-		];
+			this.minS, this.maxT,
+			this.maxS, this.maxT,
+			this.minS, this.minT,
+			this.maxS, this.minT
+			];
 
 		this.primitiveType = this.scene.gl.TRIANGLES;
 		this.initGLBuffers();
